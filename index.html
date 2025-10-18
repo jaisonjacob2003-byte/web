@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian Agamudiyar Community</title>
+<style>
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url('https://media.craiyon.com/2025-07-21/YlIVVbwwSs2vQD7dNdA4QA.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0; padding:0; color:#000; overflow-x:hidden;
+}
+header {
+  background-color: #000; color:#fff; text-align:center; padding:37px 20px;
+  display:flex; justify-content:center; align-items:center; box-shadow:0 1px 1px rgba(0,0,0,0.1); position:relative;
+}
+header img { width:55px; height:55px; position:absolute; left:25px; top:15px; opacity:0.9; }
+/* Update the Header H1 style */
+header h1 {
+  display: inline-block;
+  white-space: nowrap; /* Ensures text stays on one line */
+  font-size: 2em;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000; /* black outline */
+  position: absolute; /* Change from relative/static to allow sliding beyond header bounds */
+  left: 100%; /* Start the text just off the right edge of the header */
+  transform: translateX(0); /* Start position */
+  animation: slideRotate 12s linear infinite;
+}
+
+/* Update the Keyframes */
+@keyframes slideRotate {
+  0% { transform: translateX(0); } /* Starting at the header's right edge (since left: 100%) */
+  0% { transform: translateX(-350%); } /* Slide far enough left to fully hide the text and its initial position */
+}
+.welcome-section {
+  text-align:center; background-color:#fff; padding:80px 20px; border-radius:15px;
+  margin:60px auto; max-width:800px; box-shadow:0 10px 25px rgb(166,165,165); color:#000;
+}
+.welcome-section h2{ font-size:2.2em; color:#000; }
+.welcome-section p{ font-size:1.1em; margin:20px 0 40px; color:#000; }
+.welcome-section button{
+  background-color:#000;color:#fff;padding:14px 28px;border:none;border-radius:10px;font-size:18px;cursor:pointer;
+}
+.welcome-section button:hover{ background-color:#c72222;color:#fff; }
+.form-section{ position:relative; padding:120px 10px; display:flex; justify-content:center; }
+.container{
+  position:relative; z-index:2; background-color:rgba(255,255,255,0.95); margin:0 auto;
+  padding:50px; border-radius:30px; width: 600px; ; box-shadow:0 0 20px rgba(226,226,226,0.878); display:none;
+}
+h2{ text-align:center; color:#111; margin-bottom:20px; }
+label{ display:block; margin-top:15px; font-weight:600; color:#111; }
+input, select, textarea{ width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px; font-size:14px; background-color:#fff; color:#000; }
+input[type="checkbox"]{ width:auto; margin-right:6px; }
+.address-row{ display:flex; align-items:center; gap:8px; margin-top:10px; }
+button.submit-btn{ background-color:#222;color:white;padding:12px 20px;border:none;border-radius:10px;font-size:16px;cursor:pointer;width:100%;margin-top:20px;transition:0.3s; }
+button.submit-btn:hover{ background-color:#555; }
+.section{ border-top:1px solid #ccc; margin-top:30px; padding-top:20px; }
+.child-section{ border:1px solid #ccc; padding:15px; margin-top:15px; border-radius:8px; }
+</style>
+</head>
+<body>
+
+<header>
+<img src="img/logo.png" alt="Logo">
+<h1>CHRISTIAN AGAMUDIYAR COMMUNITY</h1>
+</header>
+
+<div class="welcome-section" id="welcome">
+<h2>Welcome to Christian Community Family</h2>
+<p>Be part of the Christian Agamudiyar Community — a family united by faith, heritage, and togetherness.</p>
+<button onclick="openForm()">REGISTER NOW</button>
+</div>
+
+<div class="form-section">
+<div class="container" id="formContainer">
+<h2>Family Registration Details</h2>
+<form id="communityForm">
+
+<label>Family Name <span style="color:red">*</span></label>
+<select required>
+<option value="">Select Family</option>
+<option>Porikaarar</option>
+<option>Vaathiyar</option>
+<option>Devar</option>
+<option>Kallar</option>
+<option>Maravar</option>
+<option>Others</option>
+</select>
+
+<label>Head of the Family Photo <span style="color:red">*</span></label>
+<input type="file" accept="image/*" required>
+
+<label>Full Name <span style="color:red">*</span></label>
+<input type="text" required>
+
+<label>Date of Birth <span style="color:red">*</span></label>
+<input type="date" required>
+
+<label>Gender <span style="color:red">*</span></label>
+<select required><option value="">Select</option><option>Male</option><option>Female</option></select>
+
+<label>Blood Group <span style="color:red">*</span></label>
+<input type="text" required>
+
+<label>Current Address <span style="color:red">*</span></label>
+<textarea id="currentAddress" required></textarea>
+
+<label>Pincode <span style="color:red">*</span></label>
+<input type="text" id="currentPincode" required>
+
+<div class="address-row">
+<input type="checkbox" id="sameAddress" onclick="copyAddress()">
+<label for="sameAddress">Same as Permanent Address</label>
+</div>
+
+<label>Permanent Address <span style="color:red">*</span></label>
+<textarea id="permAddress" required></textarea>
+
+<label>Pincode <span style="color:red">*</span></label>
+<input type="text" id="permPincode" required>
+
+<label>Phone Number <span style="color:red">*</span></label>
+<input type="tel" required>
+
+<label>Email <span style="color:red">*</span></label>
+<input type="email" required>
+
+<label>Education Details <span style="color:red">*</span></label>
+<input type="text" required>
+
+<label>Career or Profession <span style="color:red">*</span></label>
+<input type="text" required>
+
+<label>Salaried / Self Employed (optional)</label>
+<input type="text">
+
+<label>Income per year (optional)</label>
+<input type="text">
+
+<label>Parish & Church (optional)</label>
+<input type="text">
+
+<div class="section">
+<h2>Family Members</h2>
+
+<div>
+<label>Father Name <span style="color:red">*</span></label><input type="text" required>
+<label>Date of Birth</label><input type="date">
+<label>Blood Group</label><input type="text">
+
+</div>
+
+<div>
+<label>Mother Name <span style="color:red">*</span></label><input type="text" required>
+<label>Date of Birth <span style="color:red">*</span></label><input type="date">
+<label>Blood Group <span style="color:red">*</span></label><input type="text">
+
+</div>
+
+<div>
+<label>Spouse Name<span style="color:red">*</span></label><input type="text">
+<label>Date of Birth<span style="color:red">*</span></label><input type="date">
+<label>Gender<span style="color:red">*</span></label><select><option>Male</option><option>Female</option></select>
+<label>Blood Group<span style="color:red">*</span></label><input type="text">
+<label>Education<span style="color:red">*</span></label><input type="text">
+</div>
+</div>
+
+<div class="section">
+<h2>Children Details</h2>
+<label>Number of Children:<span style="color:red">*</span></label>
+<input type="number" id="numChildren" min="0" max="10" onchange="generateChildren()">
+
+<div id="childrenContainer"></div>
+</div>
+
+<label>Additional Notes (optional)</label>
+<textarea></textarea>
+
+<button type="submit" class="submit-btn">Submit Registration</button>
+</form>
+</div>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById('welcome').style.display='none';
+  document.getElementById('formContainer').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function copyAddress() {
+  const same = document.getElementById('sameAddress').checked;
+  document.getElementById('permAddress').value = same ? document.getElementById('currentAddress').value : '';
+  document.getElementById('permPincode').value = same ? document.getElementById('currentPincode').value : '';
+}
+
+// Generate children detail sections dynamically
+function generateChildren(){
+  const count = parseInt(document.getElementById('numChildren').value)||0;
+  const container = document.getElementById('childrenContainer');
+  container.innerHTML = ''; // Clear previous
+  for(let i=1;i<=count;i++){
+    const div = document.createElement('div');
+    div.className = 'child-section';
+    div.innerHTML = `<h3>Child ${i} Details</h3>
+      <label>Name <span style="color:red">*</span></label><input type="text" required>
+      <label>Photo (optional)</label><input type="file" accept="image/*">
+      <label>Date of Birth</label><input type="date">
+      <label>Gender</label><select><option>Male</option><option>Female</option></select>
+      <label>Blood Group</label><input type="text">
+      <label>Education Level</label><input type="text">
+      <label>Career</label><input type="text">`;
+    container.appendChild(div);
+  }
+}
+
+document.getElementById('communityForm').addEventListener('submit', function(e){
+  if(!this.checkValidity()){
+    e.preventDefault();
+    alert('⚠ Please fill in all mandatory fields before submitting!');
+  } else{
+    alert('✅ Registration submitted successfully!');
+  }
+});
+</script>
+
+</body>
+</html>
